@@ -1,0 +1,43 @@
+﻿html, body {
+    margin: 0;
+    text-align: center;
+}
+
+.block, fieldset {
+    border: 1px solid #c033fd;
+    border-radius: 5px;
+}
+
+main {
+    display: grid;
+
+    grid-template-areas:
+        "H H H"
+        "N A S"
+        "F F F";
+
+    grid-template-rows: 12% 1fr 12%;
+    grid-template-columns: 15% 1fr 20%;
+    grid-gap: 4px;
+    height: 100vh;
+}
+
+header {
+    grid-area: H;
+}
+
+article {
+    grid-area: A;
+}
+
+aside {
+    grid-area: S;
+}
+
+nav {
+    grid-area: N;
+}
+
+footer {
+    grid-area: F;
+}

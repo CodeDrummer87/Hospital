@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Hospital</title>
+    <link href="~/css/doctorUiStyle.css" rel="stylesheet" />
+</head>
+<body>
+    <main>
+        <header class="block">Заголовок</header>
+        <nav class="block">Здесь будет список доступных действий</nav>
+        <article class="block">
+            <fieldset>
+                <legend>Данные пациента</legend>
+                <fieldset>
+                    <legend>Ф.И.О.</legend>
+                    <input type="text" placeholder="Имя" autofocus="autofocus" />
+                    <br />
+                    <input type="text" placeholder="Фамилия" />
+                    <br />
+                    <input type="text" placeholder="Отчество" />
+                    <br />
+                </fieldset>
+                <fieldset>
+                    <legend>Пол</legend>
+                    <p>Муж.<input type="radio" name="joker" value="male" /></p>
+                    <p>Жен.<input type="radio" name="joker" value="female" /></p>
+                </fieldset>
+                <fieldset>
+                    <legend>Дата рождения</legend>
+                    <input type="date" />
+                </fieldset>
+                <fieldset>
+                    <legend>Адрес</legend>
+                    <input type="text" placeholder="Адрес фактический" />
+                    <br />
+                    <input type="text" placeholder="Адрес регистрации" />
+                    <br />
+                    <p>Местность</p>
+                    <input type="text" placeholder="Городская / Область" />
+                </fieldset>
+                <input type="text" placeholder="Телефон" />
+                <fieldset>
+                    <legend>Сведения о месте работы</legend>
+                    <input type="text" placeholder="Место работы / Безработный" />
+                </fieldset>
+                <fieldset>
+                    <legend>Полис</legend>
+                    <input type="text" placeholder="Серия"/>
+                    <input type="text" placeholder="Номер" />
+                </fieldset>
+                <fieldset>
+                    <legend>СНИЛС</legend>
+                    <input type="text" placeholder="xxx-xxx-xxx xx" />
+                </fieldset>
+                <button>Создать</button>
+            </fieldset>
+        </article>
+        <aside class="block">Экран событий</aside>
+        <footer class="block">Подвал</footer>
+    </main>
+</body>
+</html>
