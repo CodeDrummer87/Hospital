@@ -15,50 +15,52 @@
                 <legend>Данные пациента</legend>
                 <fieldset>
                     <legend>Ф.И.О.</legend>
-                    <input type="text" placeholder="Имя" autofocus="autofocus" />
+                    <input type="text" id="newPatientFirstName" placeholder="Имя" autofocus="autofocus" />
                     <br />
-                    <input type="text" placeholder="Фамилия" />
+                    <input type="text" id="newPatientLastName" placeholder="Фамилия" />
                     <br />
-                    <input type="text" placeholder="Отчество" />
+                    <input type="text" id="newPatientMiddleName" placeholder="Отчество" />
                     <br />
                 </fieldset>
                 <fieldset>
                     <legend>Пол</legend>
-                    <p>Муж.<input type="radio" name="joker" value="male" /></p>
-                    <p>Жен.<input type="radio" name="joker" value="female" /></p>
+                    <label>Муж.<input type="radio" name="patientSex" value="male" checked="checked" /></label>
+                    <label>Жен.<input type="radio" name="patientSex" value="female" /></label>
                 </fieldset>
                 <fieldset>
                     <legend>Дата рождения</legend>
-                    <input type="date" />
+                    <input type="date" id="newPatientBirthday" />
                 </fieldset>
                 <fieldset>
                     <legend>Адрес</legend>
-                    <input type="text" placeholder="Адрес фактический" />
+                    <input type="text" id="newPatientAddressCurrent" placeholder="Адрес фактический" />
                     <br />
-                    <input type="text" placeholder="Адрес регистрации" />
+                    <input type="text" id="newPatientAddressOfficial" placeholder="Адрес регистрации" />
                     <br />
                     <p>Местность</p>
-                    <input type="text" placeholder="Городская / Область" />
+                    <input type="text" id="newPatientState" placeholder="Городская / Область" />
                 </fieldset>
-                <input type="text" placeholder="Телефон" />
+                <input type="text" id="newPatientPhone" placeholder="Телефон" />
                 <fieldset>
                     <legend>Сведения о месте работы</legend>
-                    <input type="text" placeholder="Место работы / Безработный" />
+                    <input type="text" id="newPatientWork" placeholder="Место работы / Безработный" />
                 </fieldset>
                 <fieldset>
                     <legend>Полис</legend>
-                    <input type="text" placeholder="Серия"/>
-                    <input type="text" placeholder="Номер" />
+                    <input type="text" id="newPatientInsurancePolicy" placeholder="Серия и номер"/>
                 </fieldset>
                 <fieldset>
                     <legend>СНИЛС</legend>
-                    <input type="text" placeholder="xxx-xxx-xxx xx" />
+                    <input type="text" id="newPatientRetirementInsurance" placeholder="xxx-xxx-xxx xx" />
                 </fieldset>
-                <button>Создать</button>
+                <button id="createNewPatientButton">Создать</button>
             </fieldset>
         </article>
         <aside class="block">Экран событий</aside>
         <footer class="block">Подвал</footer>
     </main>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/creatingPatient.js"></script>
 </body>
 </html>
