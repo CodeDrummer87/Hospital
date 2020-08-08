@@ -1,60 +1,76 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@531&display=swap" rel="stylesheet">
+    <link href="~/css/doctorUiStyle.css" rel="stylesheet" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Hospital</title>
-    <link href="~/css/doctorUiStyle.css" rel="stylesheet" />
 </head>
 <body>
     <main>
         <header class="block">Заголовок</header>
         <nav class="block">Здесь будет список доступных действий</nav>
         <article class="block">
-            <fieldset>
-                <legend>Данные пациента</legend>
-                <fieldset>
-                    <legend>Ф.И.О.</legend>
-                    <input type="text" id="newPatientFirstName" placeholder="Имя" autofocus="autofocus" />
-                    <br />
-                    <input type="text" id="newPatientLastName" placeholder="Фамилия" />
-                    <br />
-                    <input type="text" id="newPatientMiddleName" placeholder="Отчество" />
-                    <br />
-                </fieldset>
-                <fieldset>
-                    <legend>Пол</legend>
-                    <label>Муж.<input type="radio" name="patientSex" value="male" checked="checked" /></label>
-                    <label>Жен.<input type="radio" name="patientSex" value="female" /></label>
-                </fieldset>
-                <fieldset>
-                    <legend>Дата рождения</legend>
-                    <input type="date" id="newPatientBirthday" />
-                </fieldset>
-                <fieldset>
-                    <legend>Адрес</legend>
-                    <input type="text" id="newPatientAddressCurrent" placeholder="Адрес фактический" />
-                    <br />
-                    <input type="text" id="newPatientAddressOfficial" placeholder="Адрес регистрации" />
-                    <br />
-                    <p>Местность</p>
-                    <input type="text" id="newPatientState" placeholder="Городская / Область" />
-                </fieldset>
-                <input type="text" id="newPatientPhone" placeholder="Телефон" />
-                <fieldset>
-                    <legend>Сведения о месте работы</legend>
-                    <input type="text" id="newPatientWork" placeholder="Место работы / Безработный" />
-                </fieldset>
-                <fieldset>
-                    <legend>Полис</legend>
-                    <input type="text" id="newPatientInsurancePolicy" placeholder="Серия и номер"/>
-                </fieldset>
-                <fieldset>
-                    <legend>СНИЛС</legend>
-                    <input type="text" id="newPatientRetirementInsurance" placeholder="xxx-xxx-xxx xx" />
-                </fieldset>
+            <div class="form-container">
+                <h2>Данные пациента</h2>
+                <hr />
+                <div class="block-row">
+                    <fieldset class="fieldset-width-45">
+                        <legend>Ф.И.О.</legend>
+                        <input type="text" class="inp-width-75" id="newPatientFirstName" placeholder="Имя" autofocus="autofocus" />
+                        <input type="text" class="inp-width-75" id="newPatientLastName" placeholder="Фамилия" />
+                        <input type="text" class="inp-width-75" id="newPatientMiddleName" placeholder="Отчество" />
+                    </fieldset>
+                    <div class="block-column">
+                        <fieldset>
+                            <legend>Дата рождения</legend>
+                            <input type="date" id="newPatientBirthday" />
+                        </fieldset>
+                        <fieldset>
+                            <legend>Полных лет</legend>
+                            <p id="currentAge">--</p>
+                        </fieldset>
+                    </div>
+                    <fieldset class="fieldset-block">
+                        <legend>Пол</legend>
+                        <label>Муж.<input type="radio" name="patientSex" value="male" checked="checked" /></label>
+                        <label>Жен.<input type="radio" name="patientSex" value="female" /></label>
+                    </fieldset>
+                    <fieldset class="fieldset-block">
+                        <legend>Телефон</legend>
+                        <label>Основной</label><input type="text" id="newPatientPhoneBase" placeholder="Телефон" />
+                        <label>Дополнительный</label><input type="text" id="newPatientPhoneAdd" placeholder="Телефон" />
+                    </fieldset>
+                </div>
+                <div class="block-row">
+                    <fieldset class="fieldset-width-60">
+                        <legend>Адрес</legend>
+                        <input type="text" class="inp-width-75" id="newPatientAddressOfficial" placeholder="Адрес регистрации" />
+                        <br />
+                        <input type="text" class="inp-width-75" id="newPatientAddressCurrent" placeholder="Адрес фактический" />
+                        <br />
+                        <label>Местность</label>
+                        <input type="text" id="newPatientState" placeholder="Городская / Область" />
+                    </fieldset>
+                    <fieldset class="fieldset-width-40">
+                        <legend>Сведения о месте работы</legend>
+                        <textarea class="textarea-width-85" id="newPatientWork"></textarea>
+                    </fieldset>
+                </div>
+                <div class="block-row">
+                    <fieldset class="fieldset-width-50">
+                        <legend>Полис</legend>
+                        <input type="text" class="inp-width-75" id="newPatientInsurancePolicy" placeholder="Серия и номер" />
+                    </fieldset>
+                    <fieldset class="fieldset-width-50">
+                        <legend>СНИЛС</legend>
+                        <input type="text" class="inp-width-75" id="newPatientRetirementInsurance" placeholder="xxx-xxx-xxx xx" />
+                    </fieldset>
+                </div>
                 <button id="createNewPatientButton">Создать</button>
-            </fieldset>
+            </div>
         </article>
         <aside class="block">Экран событий</aside>
         <footer class="block">Подвал</footer>

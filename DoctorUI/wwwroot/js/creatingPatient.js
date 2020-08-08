@@ -14,10 +14,11 @@ function GetNewPatientData() {
 		MiddleName: $('#newPatientMiddleName').val(),
 		Sex: $('input[name="patientSex"]:checked').val(),
 		Birthday: $('#newPatientBirthday').val(),
-		AddressCurrent: $('#newPatientAddressCurrent').val(),
 		AddressOfficial: $('#newPatientAddressOfficial').val(),
+		AddressCurrent: $('#newPatientAddressCurrent').val(),
 		State: $('#newPatientState').val(),
-		Phone: $('#newPatientPhone').val(),
+		PhoneBase: $('#newPatientPhoneBase').val(),
+		PhoneAdd: $('#newPatientPhoneAdd').val(),
 		Work: $('#newPatientWork').val(),
 		InsurancePolicy: $('#newPatientInsurancePolicy').val(),
 		RetirementInsurance: $('#newPatientRetirementInsurance').val()
@@ -25,6 +26,10 @@ function GetNewPatientData() {
 }
 
 function CreateNewPatient(patient) {
+	if (patient.Birthday == '') {
+		patient.Birthday = new Date("2000-01-01").toLocaleDateString();
+	}
+	console.log(patient.Birthday);
 	if (patient !== null) {
 		$.ajax({
 			url: 'https://localhost:44349/api/patient/create',

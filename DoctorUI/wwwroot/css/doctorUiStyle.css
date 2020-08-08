@@ -1,11 +1,115 @@
 ﻿html, body {
     margin: 0;
     text-align: center;
+    font-size: 1.1rem;
+}
+
+hr {
+    width: 90%;
+    border: none;
+    background-color: #b009f9;
+    height: 2px;
+}
+
+.form-container {
+    width: 100%;
+    margin: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+input, button, textarea {
+    margin: 3px 0;
+    border-radius: 4px;
+    border: 1px solid #b009f9;
+}
+
+button {
+    margin: 7px auto;
+    width: 12%;
+    height: 30px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.1rem;
+    background-color: #d185f3;
+}
+
+button:hover {
+    background-color: #d185f3;
+}
+
+button:active {
+    background-color: #ffd800;
+}
+
+input:focus, textarea:focus, button:hover {
+    box-shadow: 0 0 7px 3px #dba2f5;
+    outline: none;
+    border-color: transparent;
 }
 
 .block, fieldset {
-    border: 1px solid #c033fd;
+    border: 2px solid #c033fd;
     border-radius: 5px;
+}
+
+.block-row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.fieldset-width-45 {
+    width: 45%;
+    height: 87%;
+}
+
+.fieldset-width-60 {
+    width: 60%;
+}
+
+.fieldset-width-50 {
+    width: 50%;
+}
+
+.fieldset-width-40 {
+    width: 40%;
+}
+
+.inp-width-75 {
+    width: 75%;
+}
+
+.textarea-width-85 {
+    width: 85%;
+    height: 65%;
+    outline: none;
+}
+
+h2, input, textarea {
+    font-family: 'Exo 2', sans-serif;
+}
+
+input, textarea {
+    padding-left: 10px;
+    font-size: 1.1rem;
+}
+
+label {
+    font-size: 0.8rem;
+    font-family: Tahoma;
+    text-align: left;
+}
+
+legend {
+    font-family: 'Russo One', sans-serif;
+}
+
+.fieldset-block {
+    display: flex;
+    height: 87%;
+    align-content: center;
+    justify-content: center;
 }
 
 main {
@@ -28,6 +132,10 @@ header {
 
 article {
     grid-area: A;
+    font-family: Verdana;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 aside {

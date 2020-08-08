@@ -18,7 +18,8 @@ namespace DoctorUI.Models
         public string AddressOfficial { get; set; }
         public string AddressCurrent { get; set; }
         public string State { get; set; }
-        public string Phone { get; set; }
+        public string PhoneBase { get; set; }
+        public string PhoneAdd { get; set; }
         public string Work { get; set; }
         public string InsurancePolicy { get; set; }
         public string RetirementInsurance { get; set; }       
