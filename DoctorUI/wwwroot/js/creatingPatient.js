@@ -1,18 +1,33 @@
-﻿$(document).ready(function () {
+﻿let newPatientMale = true;
+
+$(document).ready(function () {
+
+	$('#newPatientMale').on('click', function () {
+		newPatientMale = true;
+		$('#newPatientMale').css('color', 'black');
+		$('#newPatientFemale').css('color', '#dba2f5');
+	});
+
+	$('#newPatientFemale').on('click', function () {
+		newPatientMale = false;
+		$('#newPatientFemale').css('color', 'black');
+		$('#newPatientMale').css('color', '#dba2f5');
+	});
 
 	$('#createNewPatientButton').on('click', function () {
 		const patient = GetNewPatientData();
 		CreateNewPatient(patient);
 	});
-
 });
+
+
 
 function GetNewPatientData() {
 	return {
 		FirstName: $('#newPatientFirstName').val(),
 		LastName: $('#newPatientLastName').val(),
 		MiddleName: $('#newPatientMiddleName').val(),
-		Sex: $('input[name="patientSex"]:checked').val(),
+		Sex: GetNewPatientSex(),
 		Birthday: $('#newPatientBirthday').val(),
 		AddressOfficial: $('#newPatientAddressOfficial').val(),
 		AddressCurrent: $('#newPatientAddressCurrent').val(),
@@ -25,14 +40,23 @@ function GetNewPatientData() {
 	};
 }
 
+function GetNewPatientSex() {
+	if (newPatientMale) {
+		return 'мужской';
+	}
+	else {
+		return 'женский';
+	}
+}
+
 function CreateNewPatient(patient) {
 	if (patient.Birthday == '') {
 		patient.Birthday = new Date("2000-01-01").toLocaleDateString();
 	}
-	console.log(patient.Birthday);
+
 	if (patient !== null) {
 		$.ajax({
-			url: 'https://localhost:44349/api/patient/create',
+			url: 'https://localhost:44330/api/patient/create',
 			method: 'POST',
 			contentType: 'application/json',
 			data: JSON.stringify(patient),

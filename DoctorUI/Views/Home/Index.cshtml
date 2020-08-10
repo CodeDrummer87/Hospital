@@ -35,13 +35,15 @@
                     </div>
                     <fieldset class="fieldset-block">
                         <legend>Пол</legend>
-                        <label>Муж.<input type="radio" name="patientSex" value="male" checked="checked" /></label>
-                        <label>Жен.<input type="radio" name="patientSex" value="female" /></label>
+                        <p class="patient-sex" id="newPatientMale">M</p>
+                        <p class="patient-sex" id="newPatientFemale">Ж</p>
                     </fieldset>
                     <fieldset class="fieldset-block">
                         <legend>Телефон</legend>
-                        <label>Основной</label><input type="text" id="newPatientPhoneBase" placeholder="Телефон" />
-                        <label>Дополнительный</label><input type="text" id="newPatientPhoneAdd" placeholder="Телефон" />
+                        <label>Основной</label>
+                        <input type="text" id="newPatientPhoneBase" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" placeholder="8-xxx-xxx-xx-xx" />
+                        <label>Дополнительный</label>
+                        <input type="text" id="newPatientPhoneAdd" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" placeholder="8-xxx-xxx-xx-xx" />
                     </fieldset>
                 </div>
                 <div class="block-row">

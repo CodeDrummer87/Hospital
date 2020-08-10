@@ -1797,22 +1797,6 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
-      },
-      "ExternalAPI/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.4"
-        },
-        "compile": {
-          "bin/placeholder/ExternalAPI.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ExternalAPI.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
       }
     }
   },
@@ -6012,16 +5996,10 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
-    },
-    "ExternalAPI/1.0.0": {
-      "type": "project",
-      "path": "../ExternalAPI/ExternalAPI.csproj",
-      "msbuildProject": "../ExternalAPI/ExternalAPI.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "ExternalAPI >= 1.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.4"
     ]
   },
@@ -6032,11 +6010,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vadik\\Desktop\\Hospital\\DoctorUI\\DoctorUI.csproj",
-      "projectName": "DoctorUI",
-      "projectPath": "C:\\Users\\Vadik\\Desktop\\Hospital\\DoctorUI\\DoctorUI.csproj",
+      "projectUniqueName": "C:\\Users\\Vadik\\Desktop\\Hospital\\ExternalAPI\\ExternalAPI.csproj",
+      "projectName": "ExternalAPI",
+      "projectPath": "C:\\Users\\Vadik\\Desktop\\Hospital\\ExternalAPI\\ExternalAPI.csproj",
       "packagesPath": "C:\\Users\\Vadik\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vadik\\Desktop\\Hospital\\DoctorUI\\obj\\",
+      "outputPath": "C:\\Users\\Vadik\\Desktop\\Hospital\\ExternalAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6054,11 +6032,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {
-            "C:\\Users\\Vadik\\Desktop\\Hospital\\ExternalAPI\\ExternalAPI.csproj": {
-              "projectPath": "C:\\Users\\Vadik\\Desktop\\Hospital\\ExternalAPI\\ExternalAPI.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

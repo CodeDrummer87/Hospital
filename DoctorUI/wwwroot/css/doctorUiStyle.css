@@ -86,6 +86,12 @@ input:focus, textarea:focus, button:hover {
     outline: none;
 }
 
+.patient-sex {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #dba2f5;
+}
+
 h2, input, textarea {
     font-family: 'Exo 2', sans-serif;
 }
