@@ -1797,6 +1797,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "EntityLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/EntityLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EntityLibrary.dll": {}
+        }
       }
     }
   },
@@ -5996,10 +6006,16 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "EntityLibrary/1.0.0": {
+      "type": "project",
+      "path": "../EntityLibrary/EntityLibrary.csproj",
+      "msbuildProject": "../EntityLibrary/EntityLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "EntityLibrary >= 1.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.4"
     ]
   },
@@ -6032,7 +6048,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Vadik\\Desktop\\Hospital\\EntityLibrary\\EntityLibrary.csproj": {
+              "projectPath": "C:\\Users\\Vadik\\Desktop\\Hospital\\EntityLibrary\\EntityLibrary.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

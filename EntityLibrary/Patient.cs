@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace DoctorUI.Models
+namespace EntityLibrary
 {
     public class Patient
     {
         [Key]
-        public int Id { get; set; }
+        public int PatientId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string MiddleName { get; set; }
@@ -22,6 +19,6 @@ namespace DoctorUI.Models
         public string PhoneAdd { get; set; }
         public string Work { get; set; }
         public string InsurancePolicy { get; set; }
-        public string RetirementInsurance { get; set; }       
+        public string RetirementInsurance { get; set; }
     }
 }

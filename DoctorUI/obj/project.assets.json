@@ -1798,10 +1798,21 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "EntityLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/EntityLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EntityLibrary.dll": {}
+        }
+      },
       "ExternalAPI/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "EntityLibrary": "1.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.4"
         },
         "compile": {
@@ -6012,6 +6023,11 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "EntityLibrary/1.0.0": {
+      "type": "project",
+      "path": "../EntityLibrary/EntityLibrary.csproj",
+      "msbuildProject": "../EntityLibrary/EntityLibrary.csproj"
     },
     "ExternalAPI/1.0.0": {
       "type": "project",
