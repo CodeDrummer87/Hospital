@@ -11,11 +11,6 @@ namespace ExternalAPI.Controllers
     [Route("api/patient")]
     public class PatientController : ControllerBase
     {
-        [Route("create")]
-        [HttpPost]
-        public string Post([FromBody]object data)
-        {
-            return null;
-        }
+
     }
 }

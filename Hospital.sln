@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoctorUI", "DoctorUI\Doctor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExternalAPI", "ExternalAPI\ExternalAPI.csproj", "{D26CC1D0-19EC-4E3C-8E31-0CA6E9940A43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityLibrary", "EntityLibrary\EntityLibrary.csproj", "{BAB567B4-FB22-478A-97B8-4DF633975010}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityLibrary", "EntityLibrary\EntityLibrary.csproj", "{BAB567B4-FB22-478A-97B8-4DF633975010}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternalAPI", "InternalAPI\InternalAPI.csproj", "{D3B62247-6D5F-4FC9-9C2A-2667F221AA19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{BAB567B4-FB22-478A-97B8-4DF633975010}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAB567B4-FB22-478A-97B8-4DF633975010}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAB567B4-FB22-478A-97B8-4DF633975010}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3B62247-6D5F-4FC9-9C2A-2667F221AA19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3B62247-6D5F-4FC9-9C2A-2667F221AA19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3B62247-6D5F-4FC9-9C2A-2667F221AA19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3B62247-6D5F-4FC9-9C2A-2667F221AA19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

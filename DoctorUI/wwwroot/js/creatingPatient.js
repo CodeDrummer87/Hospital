@@ -56,7 +56,7 @@ function CreateNewPatient(patient) {
 
 	if (patient !== null) {
 		$.ajax({
-			url: 'https://localhost:44330/api/patient/create',
+			url: 'https://localhost:44324/api/patient/create',
 			method: 'POST',
 			contentType: 'application/json',
 			data: JSON.stringify(patient),

@@ -1807,23 +1807,6 @@
         "runtime": {
           "bin/placeholder/EntityLibrary.dll": {}
         }
-      },
-      "InternalAPI/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "EntityLibrary": "1.0.0",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.4"
-        },
-        "compile": {
-          "bin/placeholder/InternalAPI.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/InternalAPI.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
       }
     }
   },
@@ -6028,16 +6011,11 @@
       "type": "project",
       "path": "../EntityLibrary/EntityLibrary.csproj",
       "msbuildProject": "../EntityLibrary/EntityLibrary.csproj"
-    },
-    "InternalAPI/1.0.0": {
-      "type": "project",
-      "path": "../InternalAPI/InternalAPI.csproj",
-      "msbuildProject": "../InternalAPI/InternalAPI.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "InternalAPI >= 1.0.0",
+      "EntityLibrary >= 1.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.4"
     ]
   },
@@ -6048,11 +6026,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vadik\\Desktop\\Hospital\\DoctorUI\\DoctorUI.csproj",
-      "projectName": "DoctorUI",
-      "projectPath": "C:\\Users\\Vadik\\Desktop\\Hospital\\DoctorUI\\DoctorUI.csproj",
+      "projectUniqueName": "C:\\Users\\Vadik\\Desktop\\Hospital\\InternalAPI\\InternalAPI.csproj",
+      "projectName": "InternalAPI",
+      "projectPath": "C:\\Users\\Vadik\\Desktop\\Hospital\\InternalAPI\\InternalAPI.csproj",
       "packagesPath": "C:\\Users\\Vadik\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vadik\\Desktop\\Hospital\\DoctorUI\\obj\\",
+      "outputPath": "C:\\Users\\Vadik\\Desktop\\Hospital\\InternalAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6071,8 +6049,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Vadik\\Desktop\\Hospital\\InternalAPI\\InternalAPI.csproj": {
-              "projectPath": "C:\\Users\\Vadik\\Desktop\\Hospital\\InternalAPI\\InternalAPI.csproj"
+            "C:\\Users\\Vadik\\Desktop\\Hospital\\EntityLibrary\\EntityLibrary.csproj": {
+              "projectPath": "C:\\Users\\Vadik\\Desktop\\Hospital\\EntityLibrary\\EntityLibrary.csproj"
             }
           }
         }
