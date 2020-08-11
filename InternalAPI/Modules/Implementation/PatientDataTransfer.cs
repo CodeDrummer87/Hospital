@@ -4,6 +4,7 @@ using InternalAPI.Modules.Interfaces;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -22,7 +23,7 @@ namespace InternalAPI.Modules.Implementation
         {
             Patient patient = JsonConvert.DeserializeObject<Patient>(data.ToString());
 
-            if (data != null)
+            if (TryValidate(patient))
             {
                 db.Patients.Add(patient);
                 db.SaveChanges();
@@ -31,6 +32,14 @@ namespace InternalAPI.Modules.Implementation
             }
 
             return "Error";
+        }
+
+        private bool TryValidate(Patient patient)
+        {
+            var results = new List<ValidationResult>();
+            var context = new ValidationContext(patient);
+
+            return Validator.TryValidateObject(patient, context, results, true);
         }
     }
 }
