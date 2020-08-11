@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EntityLibrary;
+using InternalAPI.DBContexts;
+using InternalAPI.Modules.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 
 namespace InternalAPI.Controllers
 {
@@ -13,13 +13,18 @@ namespace InternalAPI.Controllers
     [ApiController]
     public class PatientController : ControllerBase
     {
+        IPatientDataTransfer buffer;
+
+        public PatientController(IPatientDataTransfer _buffer)
+        {
+            buffer = _buffer;
+        }
+
         [Route("create")]
         [HttpPost]
         public string Post([FromBody]object data)
         {
-            Patient patient = JsonConvert.DeserializeObject<Patient>(data.ToString());
-
-            return null;
+            return buffer.SaveNewPatient(data);
         }
     }
 }

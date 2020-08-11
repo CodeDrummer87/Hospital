@@ -57,14 +57,20 @@ function CreateNewPatient(patient) {
 	if (patient !== null) {
 		$.ajax({
 			url: 'https://localhost:44324/api/patient/create',
-			method: 'POST',
+			method: 'POST', 
 			contentType: 'application/json',
 			data: JSON.stringify(patient),
-			success: function () {
-				alert("Попало куда нужно!");
+			success: function (response) {
+				if (response === "Ok") {
+					alert(".:: Карта пациента создана");
+				}
+				else {
+					console.log(".:: Ошибка");
+				}
+				
 			},
 			error: function () {
-				alert("Ошибочка вышла!");
+				alert(".:: Ошибка запроса");
 			}
 		});
 	}

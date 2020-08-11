@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using InternalAPI.DBContexts;
+using InternalAPI.Modules.Implementation;
+using InternalAPI.Modules.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -35,6 +37,8 @@ namespace InternalAPI
                                                                             AllowAnyMethod().
                                                                             AllowAnyHeader()));
             services.AddControllers();
+
+            services.AddScoped<IPatientDataTransfer, PatientDataTransfer>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
