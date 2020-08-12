@@ -35,15 +35,15 @@
                     </div>
                     <fieldset class="fieldset-block">
                         <legend>Пол</legend>
-                        <p class="patient-sex" id="newPatientMale">M</p>
-                        <p class="patient-sex" id="newPatientFemale">Ж</p>
+                        <p class="patient-sex" id="newPatientMale" title="Установить мужской пол">M</p>
+                        <p class="patient-sex" id="newPatientFemale" title="Установить женский пол">Ж</p>
                     </fieldset>
                     <fieldset class="fieldset-block">
                         <legend>Телефон</legend>
                         <label>Основной</label>
                         <input type="text" id="newPatientPhoneBase" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" placeholder="8-xxx-xxx-xx-xx" />
                         <label>Дополнительный</label>
-                        <input type="text" id="newPatientPhoneAdd" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" placeholder="8-xxx-xxx-xx-xx" />
+                        <input type="text" id="newPatientPhoneAdd" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" placeholder="8-xxx-xxx-xx-xx" readonly />
                     </fieldset>
                 </div>
                 <div class="block-row">
@@ -53,8 +53,7 @@
                         <br />
                         <input type="text" class="inp-width-75" id="newPatientAddressCurrent" placeholder="Адрес фактический" />
                         <br />
-                        <label>Местность</label>
-                        <input type="text" id="newPatientState" placeholder="Городская / Область" />
+                        <pre><span id="newPatientCity" title="Горожанин">Город</span>|<span id="newPatientRegion" title="Житель области">Область</span></pre>
                     </fieldset>
                     <fieldset class="fieldset-width-40">
                         <legend>Сведения о месте работы</legend>

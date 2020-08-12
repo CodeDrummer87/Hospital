@@ -1,17 +1,59 @@
 ﻿let newPatientMale = true;
+let patientIsCitizen = true;
+
+let idArrayForCleanUp = [
+	'#newPatientFirstName',
+	'#newPatientLastName',
+	'#newPatientMiddleName',
+	'#newPatientBirthday',
+	'#newPatientPhoneBase',
+	'#newPatientPhoneAdd',
+	'#newPatientAddressOfficial',
+	'#newPatientAddressCurrent',
+	'#newPatientWork',
+	'#newPatientInsurancePolicy',
+	'#newPatientRetirementInsurance'
+];
+
+let idArrayForResetSelect = [
+	'#newPatientMale',
+	'#newPatientFemale',
+	'#newPatientCity',
+	'#newPatientRegion'
+];
 
 $(document).ready(function () {
 
+	$('#newPatientBirthday').on('change', function () {
+		$('#newPatientBirthday').on('blur', GetAge());
+	});
+
+	$('#newPatientPhoneBase').on('blur', function () {
+		SetInputForReadonly();
+	});
+
+	$('#newPatientAddressOfficial').on('change', function () {
+		$('#newPatientAddressOfficial').on('blur', GetAddressValue());
+	});
+
 	$('#newPatientMale').on('click', function () {
 		newPatientMale = true;
-		$('#newPatientMale').css('color', 'black');
-		$('#newPatientFemale').css('color', '#dba2f5');
+		SelectFirstProperty('#newPatientMale', '#newPatientFemale');
 	});
 
 	$('#newPatientFemale').on('click', function () {
 		newPatientMale = false;
-		$('#newPatientFemale').css('color', 'black');
-		$('#newPatientMale').css('color', '#dba2f5');
+		SelectFirstProperty('#newPatientFemale', '#newPatientMale');
+	});
+
+	$('#newPatientCity').on('click', function () {
+		patientIsCitizen = true;
+		SelectFirstProperty('#newPatientCity', '#newPatientRegion');
+	});
+
+	$('#newPatientRegion').on('click', function () {
+		patientIsCitizen = false;
+		SelectFirstProperty('#newPatientRegion', '#newPatientCity');
 	});
 
 	$('#createNewPatientButton').on('click', function () {
@@ -19,8 +61,6 @@ $(document).ready(function () {
 		CreateNewPatient(patient);
 	});
 });
-
-
 
 function GetNewPatientData() {
 	return {
@@ -31,7 +71,7 @@ function GetNewPatientData() {
 		Birthday: $('#newPatientBirthday').val(),
 		AddressOfficial: $('#newPatientAddressOfficial').val(),
 		AddressCurrent: $('#newPatientAddressCurrent').val(),
-		State: $('#newPatientState').val(),
+		State: GetNewPatientRegion(),
 		PhoneBase: $('#newPatientPhoneBase').val(),
 		PhoneAdd: $('#newPatientPhoneAdd').val(),
 		Work: $('#newPatientWork').val(),
@@ -40,12 +80,26 @@ function GetNewPatientData() {
 	};
 }
 
+function SelectFirstProperty(firstProp, secondProp) {
+	$(firstProp).css('color', 'black');
+	$(secondProp).css('color', '#dba2f5');
+}
+
 function GetNewPatientSex() {
 	if (newPatientMale) {
 		return 'мужской';
 	}
 	else {
 		return 'женский';
+	}
+}
+
+function GetNewPatientRegion() {
+	if (patientIsCitizen) {
+		return "Город";
+	}
+	else {
+		return "Область";
 	}
 }
 
@@ -63,15 +117,69 @@ function CreateNewPatient(patient) {
 			success: function (response) {
 				if (response === "Ok") {
 					alert(".:: Карта пациента создана");
+					ClearPatientCardForm();
 				}
 				else {
 					console.log(".:: Ошибка");
-				}
-				
+				}			
 			},
 			error: function () {
 				alert(".:: Ошибка запроса");
 			}
 		});
 	}
+}
+
+function GetAge() {
+	let birthday = $('#newPatientBirthday').val();
+
+	let now = new Date();
+	let today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+	let dob = new Date(birthday);
+	let dobInCurrentYear = new Date(today.getFullYear(), dob.getMonth(), dob.getDate());
+
+	let currentAge = today.getFullYear() - dob.getFullYear();
+	if (today < dobInCurrentYear) {
+		--currentAge;
+	}
+	if (currentAge > 0) {
+		$('#currentAge').text(currentAge);
+	}
+	else {
+		$('#currentAge').text('--');
+	}
+}
+
+function GetAddressValue() {
+	let addressOfficial = $('#newPatientAddressOfficial').val();
+	$('#newPatientAddressCurrent').val(addressOfficial);
+}
+
+function ResetSelection(prop) {
+	$(prop).css('color', '#dba2f5');
+}
+
+function SetInputForReadonly() {
+	let phoneBase = $('#newPatientPhoneBase').val();
+	if (phoneBase !== '') {
+		$('#newPatientPhoneAdd').removeAttr('readonly').css('background-color', '#fff');
+	}
+	else {
+		$('#newPatientPhoneAdd').val('').attr('readonly', 'readonly').css('background-color', '#dba2f5');
+	}
+}
+
+function ClearPatientCardForm() {
+
+	for (let id of idArrayForCleanUp) {
+		$(id).val('');
+	}
+
+	for (let id of idArrayForResetSelect) {
+		ResetSelection(id);
+	}
+
+	$('#currentAge').text('--');
+	SetInputForReadonly();
 }
