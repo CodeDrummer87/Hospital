@@ -111,20 +111,20 @@ function CreateNewPatient(patient) {
 	if (patient !== null) {
 		$.ajax({
 			url: 'https://localhost:44324/api/patient/create',
-			method: 'POST', 
+			method: 'POST',
 			contentType: 'application/json',
 			data: JSON.stringify(patient),
 			success: function (response) {
 				if (response === "Ok") {
-					alert(".:: Карта пациента создана");
+					ShowCurrentMessage('Карта пациента создана', true);
 					ClearPatientCardForm();
 				}
 				else {
-					console.log(".:: Ошибка");
+					ShowCurrentMessage('Данные пациента не валидны', false);
 				}			
 			},
 			error: function () {
-				alert(".:: Ошибка запроса");
+				ShowCurrentMessage('Ошибка выполнения запроса. Обратитесь к администратору', false);
 			}
 		});
 	}
@@ -182,4 +182,19 @@ function ClearPatientCardForm() {
 
 	$('#currentAge').text('--');
 	SetInputForReadonly();
+}
+
+function ShowCurrentMessage(message, success) {
+	if (success) {
+		$('#currentMessage').css('color', '#3ace0c').text(message);
+	}
+	else {
+		$('#currentMessage').css('color', '#f83535').text(message);
+	}
+
+	setTimeout(ClearCurrentMessage, 2500);
+}
+
+function ClearCurrentMessage() {
+	$('#currentMessage').html('&nbsp;');
 }

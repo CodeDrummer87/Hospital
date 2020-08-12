@@ -1,7 +1,7 @@
 ﻿html, body {
     margin: 0;
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1.07rem;
 }
 
 hr {
@@ -13,7 +13,7 @@ hr {
 
 .form-container {
     width: 100%;
-    margin: 1%;
+    margin: 0.5%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -125,6 +125,12 @@ legend {
     background-color: #dba2f5;
 }
 
+#currentMessage {
+    margin: 0;
+    font-size: 1rem;
+    font-family: 'Russo One', sans-serif;
+}
+
 .fieldset-block {
     display: flex;
     height: 87%;
@@ -140,7 +146,7 @@ main {
         "N A S"
         "F F F";
 
-    grid-template-rows: 10% 1fr 8%;
+    grid-template-rows: 9% 1fr 7%;
     grid-template-columns: 15% 1fr 20%;
     grid-gap: 4px;
     height: 100vh;
@@ -168,4 +174,9 @@ nav {
 
 footer {
     grid-area: F;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    font-family: 'Exo 2', sans-serif;
 }
