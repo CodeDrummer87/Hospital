@@ -37,7 +37,7 @@ namespace EntityLibrary
 
         [Required]
         [StringLength(10, MinimumLength = 4)]
-        public string State { get; set; }
+        public string Locality { get; set; }
 
         [Required]
         [StringLength(20, MinimumLength = 5)]

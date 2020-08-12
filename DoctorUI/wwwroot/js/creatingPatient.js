@@ -71,7 +71,7 @@ function GetNewPatientData() {
 		Birthday: $('#newPatientBirthday').val(),
 		AddressOfficial: $('#newPatientAddressOfficial').val(),
 		AddressCurrent: $('#newPatientAddressCurrent').val(),
-		State: GetNewPatientRegion(),
+		Locality: GetNewPatientRegion(),
 		PhoneBase: $('#newPatientPhoneBase').val(),
 		PhoneAdd: $('#newPatientPhoneAdd').val(),
 		Work: $('#newPatientWork').val(),
