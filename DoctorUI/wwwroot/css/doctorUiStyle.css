@@ -11,6 +11,10 @@ hr {
     height: 2px;
 }
 
+#newPatientMale, #newPatientCity {
+    color: #000;
+}
+
 .form-container {
     width: 100%;
     margin: 0.5%;

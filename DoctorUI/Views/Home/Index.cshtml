@@ -41,9 +41,9 @@
                     <fieldset class="fieldset-block">
                         <legend>Телефон</legend>
                         <label>Основной</label>
-                        <input type="text" id="newPatientPhoneBase" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" placeholder="8-xxx-xxx-xx-xx" />
+                        <input type="text" id="newPatientPhoneBase" placeholder="8-xxx-xxx-xx-xx" />
                         <label>Дополнительный</label>
-                        <input type="text" id="newPatientPhoneAdd" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" placeholder="8-xxx-xxx-xx-xx" readonly />
+                        <input type="text" id="newPatientPhoneAdd" placeholder="8-xxx-xxx-xx-xx" readonly />
                     </fieldset>
                 </div>
                 <div class="block-row">
@@ -53,7 +53,7 @@
                         <br />
                         <input type="text" class="inp-width-75" id="newPatientAddressCurrent" placeholder="Адрес фактический" />
                         <br />
-                        <pre><span id="newPatientCity" title="Горожанин">Город</span>|<span id="newPatientRegion" title="Житель области">Область</span></pre>
+                        <pre><span id="newPatientCity" title="Проживает в городе">Город</span>|<span id="newPatientRegion" title="Проживает в области">Область</span></pre>
                     </fieldset>
                     <fieldset class="fieldset-width-40">
                         <legend>Сведения о месте работы</legend>
@@ -63,7 +63,7 @@
                 <div class="block-row">
                     <fieldset class="fieldset-width-50">
                         <legend>Полис</legend>
-                        <input type="text" class="inp-width-75" id="newPatientInsurancePolicy" placeholder="Серия и номер" />
+                        <input type="text" class="inp-width-75" id="newPatientInsurancePolicy" placeholder="Серия и номер: xx xx xxxxxxx" />
                     </fieldset>
                     <fieldset class="fieldset-width-50">
                         <legend>СНИЛС</legend>
@@ -79,6 +79,7 @@
     </main>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/js/creatingPatient.js"></script>
+    <script defer src="~/js/creatingPatient.js"></script>
+    <script defer src="~/js/dataValidation.js"></script>
 </body>
 </html>

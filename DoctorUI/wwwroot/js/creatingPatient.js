@@ -60,6 +60,74 @@ $(document).ready(function () {
 		const patient = GetNewPatientData();
 		CreateNewPatient(patient);
 	});
+
+	$('#newPatientFirstName').on('change', function () {
+		$(this).on('blur', function () {
+			TryValidate(this, 'names', 2, 50);
+		});
+	});
+
+	$('#newPatientLastName').on('change', function () {
+		$(this).on('blur', function () {
+			TryValidate(this, 'names', 2, 50);
+		});
+	});
+
+	$('#newPatientMiddleName').on('change', function () {
+		$(this).on('blur', function () {
+			TryValidate(this, 'names', 2, 50);
+		});
+	});
+
+	$('#newPatientBirthday').on('focus', function () {
+		$(this).on('blur', function () {
+			TryValidate(this, 'dates', 0, 0);
+		});
+	});
+
+	$('#newPatientPhoneBase').on('focus', function () {
+		$(this).on('blur', function () {
+			TryValidate(this, 'phones', 5, 20);
+		});
+	});
+
+	$('#newPatientPhoneAdd').on('focus', function () {
+		if ($('#newPatientPhoneAdd').prop('readonly') == false) {
+			$(this).on('blur', function () {
+				TryValidate(this, 'phones', 5, 20);
+			});
+		}
+	});
+
+	$('#newPatientAddressOfficial').on('focus', function () {
+		$(this).on('blur', function () {
+			TryValidate(this, 'address', 10, 200);
+		});
+	});
+
+	$('#newPatientAddressCurrent').on('focus', function () {
+		$(this).on('blur', function () {
+			TryValidate(this, 'address', 10, 200);
+		});
+	});
+
+	$('#newPatientWork').on('focus', function () {
+		$(this).on('blur', function () {
+			TryValidate(this, 'work', 3, 200);
+		});
+	});
+
+	$('#newPatientInsurancePolicy').on('focus', function () {
+		$(this).on('blur', function () {
+			TryValidate(this, 'insurancePolicy', 10, 15);
+		});
+	});
+
+	$('#newPatientRetirementInsurance').on('focus', function () {
+		$(this).on('blur', function () {
+			TryValidate(this, 'retirementInsurance', 12, 15);
+		});
+	});
 });
 
 function GetNewPatientData() {
@@ -104,9 +172,6 @@ function GetNewPatientRegion() {
 }
 
 function CreateNewPatient(patient) {
-	if (patient.Birthday == '') {
-		patient.Birthday = new Date("2000-01-01").toLocaleDateString();
-	}
 
 	if (patient !== null) {
 		$.ajax({
@@ -192,7 +257,7 @@ function ShowCurrentMessage(message, success) {
 		$('#currentMessage').css('color', '#f83535').text(message);
 	}
 
-	setTimeout(ClearCurrentMessage, 2500);
+	setTimeout(ClearCurrentMessage, 3500);
 }
 
 function ClearCurrentMessage() {
