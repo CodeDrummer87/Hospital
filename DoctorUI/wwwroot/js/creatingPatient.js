@@ -58,74 +58,80 @@ $(document).ready(function () {
 
 	$('#createNewPatientButton').on('click', function () {
 		const patient = GetNewPatientData();
-		CreateNewPatient(patient);
+
+		if (CheckDataValidity(idArrayForCleanUp)) {
+			CreateNewPatient(patient);
+		}
+		else {
+			ShowCurrentMessage("Введены некорректные данные пациента. Пожалуйста, исправьте.", false);
+		}	
 	});
 
 	$('#newPatientFirstName').on('change', function () {
-		$(this).on('blur', function () {
-			TryValidate(this, 'names', 2, 50);
+		$('#newPatientFirstName').on('blur', function () {
+			TryValidate('#newPatientFirstName');
 		});
 	});
 
 	$('#newPatientLastName').on('change', function () {
 		$(this).on('blur', function () {
-			TryValidate(this, 'names', 2, 50);
+			TryValidate('#newPatientLastName');
 		});
 	});
 
 	$('#newPatientMiddleName').on('change', function () {
 		$(this).on('blur', function () {
-			TryValidate(this, 'names', 2, 50);
+			TryValidate('#newPatientMiddleName');
 		});
 	});
 
 	$('#newPatientBirthday').on('focus', function () {
 		$(this).on('blur', function () {
-			TryValidate(this, 'dates', 0, 0);
+			TryValidate('#newPatientBirthday');
 		});
 	});
 
 	$('#newPatientPhoneBase').on('focus', function () {
 		$(this).on('blur', function () {
-			TryValidate(this, 'phones', 5, 20);
+			TryValidate('#newPatientPhoneBase');
 		});
 	});
 
 	$('#newPatientPhoneAdd').on('focus', function () {
 		if ($('#newPatientPhoneAdd').prop('readonly') == false) {
 			$(this).on('blur', function () {
-				TryValidate(this, 'phones', 5, 20);
+				TryValidate('#newPatientPhoneAdd');
 			});
 		}
 	});
 
 	$('#newPatientAddressOfficial').on('focus', function () {
 		$(this).on('blur', function () {
-			TryValidate(this, 'address', 10, 200);
+			TryValidate('#newPatientAddressOfficial');
 		});
 	});
 
 	$('#newPatientAddressCurrent').on('focus', function () {
 		$(this).on('blur', function () {
-			TryValidate(this, 'address', 10, 200);
+			TryValidate('#newPatientAddressCurrent');
 		});
 	});
 
 	$('#newPatientWork').on('focus', function () {
 		$(this).on('blur', function () {
-			TryValidate(this, 'work', 3, 200);
+			TryValidate('#newPatientWork');
 		});
 	});
 
 	$('#newPatientInsurancePolicy').on('focus', function () {
 		$(this).on('blur', function () {
-			TryValidate(this, 'insurancePolicy', 10, 15);
+			TryValidate('#newPatientInsurancePolicy');
 		});
 	});
 
 	$('#newPatientRetirementInsurance').on('focus', function () {
 		$(this).on('blur', function () {
-			TryValidate(this, 'retirementInsurance', 12, 15);
+			TryValidate('#newPatientRetirementInsurance');
 		});
 	});
 });
