@@ -11,8 +11,36 @@
 <body>
     <main>
         <header class="block">Заголовок</header>
-        <nav class="block">Здесь будет список доступных действий</nav>
-        <article class="block">
+        <nav class="block">
+            <div class="menu-buttons">
+                <hr />
+                <button id="nav-main-button">Главная</button>
+                <button>Очередь на приём</button>
+                <button disabled>Перенаправленный пациент</button>
+                <button>Список моих пациентов</button>
+                <button id="nav-createPatient-button">Создать карту нового пациента</button>
+                <hr />
+            </div>
+        </nav>
+        <article class="block" id="article-main-block">
+            <div class="block-row">
+                <div class="dateTime-block">
+                    <p id="currentDate"></p>
+                    <p id="currentTime"></p>
+                </div>
+            </div>
+            <div class="block-row">
+                <h2>Кабинет [направление специалиста]</h2>
+            </div>
+            <hr />
+            <div class="block-row">
+                <h3>Врач: [Фамилия Имя Отчество]</h3>
+                <h3>Медсестра: [Фамилия Имя Отчество]</h3>
+            </div>
+            <hr />
+            <p>На сегодня к Вам сформирована очередь пациентов по талонам. Талонов выдано: [число талонов]</p>
+        </article>
+        <article class="block" id="article-createPatient-block">
             <div class="form-container">
                 <h2>Данные пациента</h2>
                 <hr />
@@ -79,6 +107,7 @@
     </main>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script defer src="~/js/navigation.js"></script>
     <script defer src="~/js/creatingPatient.js"></script>
     <script defer src="~/js/dataValidation.js"></script>
 </body>

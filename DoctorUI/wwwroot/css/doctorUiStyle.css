@@ -4,6 +4,39 @@
     font-size: 1.07rem;
 }
 
+#article-main-block {
+    display: block;
+    padding: 1%;
+    
+}
+
+#article-createPatient-block {
+    display: none;
+}
+
+.dateTime-block {
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    width: 100%;
+}
+
+#currentDate, #currentTime {
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    color: #b009f9;
+}
+
+#currentDate {
+   text-align: left;
+}
+
+#currentTime {
+    text-align: right;
+}
+
 hr {
     width: 90%;
     border: none;
@@ -13,6 +46,18 @@ hr {
 
 #newPatientMale, #newPatientCity {
     color: #000;
+}
+
+.menu-buttons {
+    margin: 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-buttons button {
+    margin-bottom: 0.5%;
+    width: 95%;
+    height: 45%;
 }
 
 .form-container {
@@ -37,6 +82,8 @@ button {
     font-family: 'Exo 2', sans-serif;
     font-size: 1.1rem;
     background-color: #d185f3;
+    border-color: #d185f3;
+    outline: none;
 }
 
 button:hover {
@@ -44,7 +91,15 @@ button:hover {
 }
 
 button:active {
-    background-color: #ffd800;
+    background-color: #5eb8f9;
+}
+
+button:disabled {
+    background-color: #dba2f5;
+}
+
+button:disabled:hover {
+    box-shadow: none;
 }
 
 input:focus, textarea:focus, button:hover {
@@ -97,7 +152,7 @@ input:focus, textarea:focus, button:hover {
     cursor: pointer;
 }
 
-h2, input, textarea {
+h2, h3, input, textarea, #article-main-block {
     font-family: 'Exo 2', sans-serif;
 }
 
