@@ -2,16 +2,18 @@
     margin: 0;
     text-align: center;
     font-size: 1.07rem;
+    font-family: 'Exo 2', sans-serif;
+}
+
+#article-createPatient-block,
+#article-patientsList-block {
+    display: none;
 }
 
 #article-main-block {
     display: block;
     padding: 1%;
     
-}
-
-#article-createPatient-block {
-    display: none;
 }
 
 .dateTime-block {
@@ -152,7 +154,22 @@ input:focus, textarea:focus, button:hover {
     cursor: pointer;
 }
 
-h2, h3, input, textarea, #article-main-block {
+table {
+    width: 100%;
+}
+
+th {
+    background-color: #d185f3;
+}
+
+table {
+    margin: 20px;
+}
+.table-name {
+    width: 250px;
+}
+
+input, textarea, table {
     font-family: 'Exo 2', sans-serif;
 }
 
@@ -169,7 +186,6 @@ label {
 
 span {
     font-size: 1.0rem;
-    font-family: 'Exo 2', sans-serif;
     margin: 0 20px;
     font-weight: bold;
     color: #dba2f5;
@@ -237,5 +253,4 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    font-family: 'Exo 2', sans-serif;
 }

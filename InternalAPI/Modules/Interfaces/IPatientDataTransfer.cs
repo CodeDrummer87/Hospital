@@ -8,5 +8,6 @@ namespace InternalAPI.Modules.Interfaces
     public interface IPatientDataTransfer
     {
         string SaveNewPatient(object data);
+        string LoadPatientsList();
     }
 }

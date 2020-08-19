@@ -41,5 +41,24 @@ namespace InternalAPI.Modules.Implementation
 
             return Validator.TryValidateObject(patient, context, results, true);
         }
+
+        public string LoadPatientsList()
+        {
+            int patientsCount = db.Patients.Count();
+            IQueryable patientsList;
+
+            if (patientsCount < 15)
+            {
+                patientsList = db.Patients.Select(p => new { p.LastName, p.FirstName, p.MiddleName, p.Birthday });
+            }
+            else
+            {
+                patientsList = db.Patients.
+                    Select(p => new { p.LastName, p.FirstName, p.MiddleName, p.Birthday }).
+                    Take(25);
+            }
+            
+            return (patientsList == null) ? "Список пуст" : JsonConvert.SerializeObject(patientsList);
+        }
     }
 }

@@ -1,19 +1,24 @@
-﻿let navButtons = ['#nav-main-button','#nav-createPatient-button'];
+﻿let navButtons = ['#nav-main-button', '#nav-patientsList-button', '#nav-createPatient-button'];
+let articlesId = ['#article-main-block', '#article-patientsList-block', '#article-createPatient-block'];
 
 $(document).ready(function () {
 
 	setInterval(GetCurrentDateTime, 1000);
 
 	$('#nav-main-button').on('click', function () {
-		$('#article-createPatient-block').css('display', 'none');
-		$('#article-main-block').css('display', 'block');
 		SelectButton('#nav-main-button');
+		SelectArticle('#article-main-block');
+	});
+
+	$('#nav-patientsList-button').on('click', function () {
+		SelectButton('#nav-patientsList-button');
+		SelectArticle('#article-patientsList-block');
+		GetPatientsList();
 	});
 
 	$('#nav-createPatient-button').on('click', function () {
-		$('#article-main-block').css('display', 'none');
-		$('#article-createPatient-block').css('display', 'block');
 		SelectButton('#nav-createPatient-button');
+		SelectArticle('#article-createPatient-block');
 	});
 });
 
@@ -72,4 +77,64 @@ function SelectButton(activeButton) {
 
 		$(button).css('background-color', '#d185f3').css('border-color', '#d185f3');;
 	}
+}
+
+function SelectArticle(artId) {
+	for (let id of articlesId) {
+		if (id !== artId) {
+			$(id).css('display', 'none');
+		}
+		else {
+			$(artId).css('display', 'block');
+		}
+	}
+}
+
+function GetPatientsList() {
+	$.ajax({
+		url: 'https://localhost:44324/api/patient/loadPatientsList',
+		method: 'GET',
+		success: function (response) {
+			WriteInTable(response);
+		},
+		error: function () {
+			console.log("Ошибка запроса");
+		}
+	});
+}
+
+function WriteInTable(data) {
+	let patients = JSON.parse(data);
+
+	$('#tbody-patientsList').children().remove();
+
+	let tbody = document.querySelector('#tbody-patientsList');
+
+	for (let patient of patients) {
+		let tr = document.createElement('tr');
+		let td1 = document.createElement('td');
+		td1.innerText = `${patient.LastName}`;
+		tr.append(td1);
+
+		let td2 = document.createElement('td');
+		td2.innerText = `${patient.FirstName}`;
+		tr.append(td2);
+
+		let td3 = document.createElement('td');
+		td3.innerText = `${patient.MiddleName}`;
+		tr.append(td3);
+
+		let td4 = document.createElement('td');
+		td4.innerText = MapToDate(patient.Birthday);
+		tr.append(td4);
+
+		tbody.append(tr);
+	}
+}
+
+function MapToDate(patientBirthday) {
+	let dateOfBirthday = '';
+	let date = new Date(patientBirthday);
+	dateOfBirthday += date.getDate() + ' ' + MapToMonth(date.getMonth()) + ' ' + date.getFullYear();
+	return dateOfBirthday;
 }

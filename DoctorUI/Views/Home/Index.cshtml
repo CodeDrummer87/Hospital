@@ -17,7 +17,7 @@
                 <button id="nav-main-button">Главная</button>
                 <button>Очередь на приём</button>
                 <button disabled>Перенаправленный пациент</button>
-                <button>Список моих пациентов</button>
+                <button id="nav-patientsList-button">Список моих пациентов</button>
                 <button id="nav-createPatient-button">Создать карту нового пациента</button>
                 <hr />
             </div>
@@ -39,6 +39,24 @@
             </div>
             <hr />
             <p>На сегодня к Вам сформирована очередь пациентов по талонам. Талонов выдано: [число талонов]</p>
+        </article>
+        <article class="block" id="article-patientsList-block">
+            <div class="table-container">
+                <h1>Список пациентов</h1>
+                <div class="block-row">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="table-name">Фамилия</th>
+                                <th class="table-name">Имя</th>
+                                <th class="table-name">Отчество</th>
+                                <th>Дата рождения</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-patientsList"></tbody>   
+                    </table>
+                </div>
+            </div>
         </article>
         <article class="block" id="article-createPatient-block">
             <div class="form-container">

@@ -26,5 +26,12 @@ namespace InternalAPI.Controllers
         {
             return buffer.SaveNewPatient(data);
         }
+
+        [Route("loadPatientsList")]
+        [HttpGet]
+        public string Get()
+        {
+            return buffer.LoadPatientsList();
+        }
     }
 }
