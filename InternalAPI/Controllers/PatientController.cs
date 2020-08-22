@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace InternalAPI.Controllers
 {
-    [Route("api/patient")]
+    [Route("api/[controller]")]
     [ApiController]
     public class PatientController : ControllerBase
     {
@@ -29,9 +29,16 @@ namespace InternalAPI.Controllers
 
         [Route("loadPatientsList")]
         [HttpGet]
-        public string Get()
+        public string Get(int page)
         {
-            return buffer.LoadPatientsList();
+            return buffer.LoadPatientsList(page);
+        }
+
+        [Route("counter")]
+        [HttpGet]
+        public int Get()
+        {
+            return buffer.GetPatientsCount();
         }
     }
 }

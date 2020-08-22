@@ -1,6 +1,9 @@
 ﻿let navButtons = ['#nav-main-button', '#nav-patientsList-button', '#nav-createPatient-button'];
 let articlesId = ['#article-main-block', '#article-patientsList-block', '#article-createPatient-block'];
 
+let currentPageInTable = 0;
+let patientsCount = GetPatientsCount();
+
 $(document).ready(function () {
 
 	setInterval(GetCurrentDateTime, 1000);
@@ -13,12 +16,32 @@ $(document).ready(function () {
 	$('#nav-patientsList-button').on('click', function () {
 		SelectButton('#nav-patientsList-button');
 		SelectArticle('#article-patientsList-block');
-		GetPatientsList();
+		GetPatientsList(currentPageInTable);
 	});
 
 	$('#nav-createPatient-button').on('click', function () {
 		SelectButton('#nav-createPatient-button');
 		SelectArticle('#article-createPatient-block');
+	});
+
+	$('img').on('mouseover', function () {
+		$(this).attr('src', "/images/arrow_right_hover.png");
+	}).on('mouseout', function () {
+		$(this).attr('src', "/images/arrow_right.png");
+	});
+
+	$('#patientList-forward').on('click', function () {
+		if (currentPageInTable < Math.round(patientsCount / 15)) { 
+			++currentPageInTable;
+			GetPatientsList(currentPageInTable);
+		}
+	});
+
+	$('#patientList-back').on('click', function () {
+		if (currentPageInTable - 1 > -1) {
+			--currentPageInTable;
+			GetPatientsList(currentPageInTable);
+		}
 	});
 });
 
@@ -90,9 +113,9 @@ function SelectArticle(artId) {
 	}
 }
 
-function GetPatientsList() {
+function GetPatientsList(page) {
 	$.ajax({
-		url: 'https://localhost:44324/api/patient/loadPatientsList',
+		url: 'https://localhost:44324/api/patient/loadPatientsList?page=' + page,
 		method: 'GET',
 		success: function (response) {
 			WriteInTable(response);
@@ -106,30 +129,34 @@ function GetPatientsList() {
 function WriteInTable(data) {
 	let patients = JSON.parse(data);
 
+	if (patientsCount > 15) {
+		$('#table-paginator').css('display', 'grid');
+		$('.table-paginator-pages').text(`Страница ${currentPageInTable + 1} из ${(Math.round(patientsCount / 15) + 1)}`);
+	}
+	else {
+		$('#table-paginator').css('display', 'none');
+	}
+
 	$('#tbody-patientsList').children().remove();
 
 	let tbody = document.querySelector('#tbody-patientsList');
 
 	for (let patient of patients) {
 		let tr = document.createElement('tr');
-		let td1 = document.createElement('td');
-		td1.innerText = `${patient.LastName}`;
-		tr.append(td1);
 
-		let td2 = document.createElement('td');
-		td2.innerText = `${patient.FirstName}`;
-		tr.append(td2);
-
-		let td3 = document.createElement('td');
-		td3.innerText = `${patient.MiddleName}`;
-		tr.append(td3);
-
-		let td4 = document.createElement('td');
-		td4.innerText = MapToDate(patient.Birthday);
-		tr.append(td4);
+		CreateCell(patient.LastName, tr);
+		CreateCell(patient.FirstName, tr);
+		CreateCell(patient.MiddleName, tr);
+		CreateCell(MapToDate(patient.Birthday), tr);
 
 		tbody.append(tr);
 	}
+}
+
+function CreateCell(value, tr) {
+	let td = document.createElement('td');
+	td.innerText = `${value}`;
+	tr.append(td);
 }
 
 function MapToDate(patientBirthday) {
@@ -137,4 +164,17 @@ function MapToDate(patientBirthday) {
 	let date = new Date(patientBirthday);
 	dateOfBirthday += date.getDate() + ' ' + MapToMonth(date.getMonth()) + ' ' + date.getFullYear();
 	return dateOfBirthday;
+}
+
+function GetPatientsCount() {
+	$.ajax({
+		url: 'https://localhost:44324/api/patient/counter',
+		method: 'GET',
+		success: function (response) {
+			patientsCount = response;
+		},
+		error: function () {
+			console.log("error!");
+		}
+	});
 }

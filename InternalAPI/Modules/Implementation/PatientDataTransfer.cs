@@ -42,23 +42,32 @@ namespace InternalAPI.Modules.Implementation
             return Validator.TryValidateObject(patient, context, results, true);
         }
 
-        public string LoadPatientsList()
+        public string LoadPatientsList(int page)
         {
             int patientsCount = db.Patients.Count();
-            IQueryable patientsList;
 
-            if (patientsCount < 15)
+            IQueryable patientsList;
+            
+            if (patientsCount >= 16)
             {
-                patientsList = db.Patients.Select(p => new { p.LastName, p.FirstName, p.MiddleName, p.Birthday });
+                patientsList = db.Patients.
+                Select(p => new { p.LastName, p.FirstName, p.MiddleName, p.Birthday }).
+                OrderBy(p => p.LastName).
+                Skip(page * 15).Take(15);
             }
             else
             {
                 patientsList = db.Patients.
                     Select(p => new { p.LastName, p.FirstName, p.MiddleName, p.Birthday }).
-                    Take(25);
+                    OrderBy(p => p.LastName);
             }
-            
+
             return (patientsList == null) ? "Список пуст" : JsonConvert.SerializeObject(patientsList);
+        }
+
+        public int GetPatientsCount()
+        {
+            return db.Patients.Count();
         }
     }
 }

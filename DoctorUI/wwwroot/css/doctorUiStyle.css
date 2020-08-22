@@ -6,14 +6,14 @@
 }
 
 #article-createPatient-block,
-#article-patientsList-block {
+#article-patientsList-block,
+#table-paginator {
     display: none;
 }
 
 #article-main-block {
     display: block;
-    padding: 1%;
-    
+    padding: 1%; 
 }
 
 .dateTime-block {
@@ -68,6 +68,14 @@ hr {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-content: center;
+}
+
+.table-container {
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     align-content: center;
 }
 
@@ -156,6 +164,7 @@ input:focus, textarea:focus, button:hover {
 
 table {
     width: 100%;
+    text-align: left;
 }
 
 th {
@@ -165,8 +174,9 @@ th {
 table {
     margin: 20px;
 }
+
 .table-name {
-    width: 250px;
+    width: 25%;
 }
 
 input, textarea, table {
@@ -253,4 +263,25 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-content: center;
+}
+
+#table-paginator {
+    margin-left: 2%;
+    display: none;
+    grid-template-areas: "L M R";
+    grid-template-rows: 10%;
+    grid-template-columns: 50px 1fr 50px;
+}
+
+.table-paginator-pages {
+    text-align: center;
+    color: #000;
+}
+
+#patientList-back {
+    transform: scale(-1, 1);
+}
+
+img {
+    cursor: pointer;
 }

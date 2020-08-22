@@ -41,8 +41,8 @@
             <p>На сегодня к Вам сформирована очередь пациентов по талонам. Талонов выдано: [число талонов]</p>
         </article>
         <article class="block" id="article-patientsList-block">
+            <h1>Список пациентов</h1>
             <div class="table-container">
-                <h1>Список пациентов</h1>
                 <div class="block-row">
                     <table>
                         <thead>
@@ -50,11 +50,16 @@
                                 <th class="table-name">Фамилия</th>
                                 <th class="table-name">Имя</th>
                                 <th class="table-name">Отчество</th>
-                                <th>Дата рождения</th>
+                                <th class="table-name">Дата рождения</th>
                             </tr>
                         </thead>
-                        <tbody id="tbody-patientsList"></tbody>   
+                        <tbody id="tbody-patientsList"></tbody>
                     </table>
+                </div>
+                <div id="table-paginator" class="block-row">
+                    <img src="~/images/arrow_right.png" id="patientList-back" />
+                    <p class="table-paginator-pages">Страница:</p>
+                    <img src="~/images/arrow_right.png" id="patientList-forward" />
                 </div>
             </div>
         </article>
