@@ -43,6 +43,18 @@ $(document).ready(function () {
 			GetPatientsList(currentPageInTable);
 		}
 	});
+
+	$('tbody').on('click', 'tr', function () {
+		$('.nap').css('display', 'block');
+		$('#pop-up-patientInfo').css('display', 'block');
+		let id = GetPatientId(this);
+		GetPatientInfo(id);
+	});
+
+	$('.nap').on('click', function () {
+		$('.nap').css('display', 'none');
+		$('#pop-up-patientInfo').css('display', 'none');
+	});
 });
 
 function GetCurrentDateTime() {
@@ -140,7 +152,7 @@ function WriteInTable(data) {
 	$('#tbody-patientsList').children().remove();
 
 	let tbody = document.querySelector('#tbody-patientsList');
-
+	let isEven = true;
 	for (let patient of patients) {
 		let tr = document.createElement('tr');
 
@@ -149,6 +161,14 @@ function WriteInTable(data) {
 		CreateCell(patient.MiddleName, tr);
 		CreateCell(MapToDate(patient.Birthday), tr);
 		tr.setAttribute('id', patient.PatientId);
+		if (isEven) {
+			isEven = false;
+			tr.classList.add('even-row');
+		}
+		else {
+			isEven = true;
+			tr.classList.add('uneven-row');
+		}
 
 		tbody.append(tr);
 	}
@@ -178,4 +198,30 @@ function GetPatientsCount() {
 			console.log("error!");
 		}
 	});
+}
+
+function GetPatientId(row) {
+	return $(row).attr('id');
+}
+
+function GetPatientInfo(id) {
+	$.ajax({
+		url: 'https://localhost:44324/api/patient/getPatientInfo?id=' + id,
+		method: 'GET',
+		success: function (data) {
+			ShowPatientInfo(data);
+		},
+		error: function () {
+			console.log("error!");
+		}
+	});
+}
+
+function ShowPatientInfo(data) {
+	let patient = JSON.parse(data);
+	console.log(patient);
+	$('#info-names').text(`Пациент: ${patient[0].LastName} ${patient[0].FirstName} ${patient[0].MiddleName}`);
+	$('#info-birthday').text(`Дата рождения: ${MapToDate(patient[0].Birthday)}`);
+	$('#info-phone').text(`Телефон: ${patient[0].PhoneBase}`);
+	$('#info-address').text(`Адрес проживания: ${patient[0].AddressCurrent}`);
 }

@@ -5,6 +5,18 @@
     font-family: 'Exo 2', sans-serif;
 }
 
+.nap {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    overflow: auto;
+    display: none;
+}
+
 #article-createPatient-block,
 #article-patientsList-block,
 #table-paginator {
@@ -182,6 +194,22 @@ table {
     width: 25%;
 }
 
+tr {
+    cursor: pointer;
+}
+
+tr:hover {
+    background-color: #fff;
+}
+
+.even-row {
+    background-color: #eed6f9;
+}
+
+.uneven-row {
+    background-color: #ebe8e8;
+}
+
 input, textarea, table {
     font-family: 'Exo 2', sans-serif;
 }
@@ -287,4 +315,27 @@ footer {
 
 img {
     cursor: pointer;
+}
+
+#pop-up-patientInfo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: 3px inset #dba2f5;
+    border-radius: 5%;
+    z-index: 150;
+    transition: all 0.5s ease-in;
+    box-shadow: 0px 0px 7px 3px #dba2f5;
+
+    width: 600px;
+    height: 250px;
+    margin: 150px auto 0 auto;
+    display: none;
+
+    padding: 2%;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.2rem;
+    text-align: left;
 }

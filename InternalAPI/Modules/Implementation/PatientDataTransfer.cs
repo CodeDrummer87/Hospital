@@ -69,5 +69,30 @@ namespace InternalAPI.Modules.Implementation
         {
             return db.Patients.Count();
         }
+
+        public string GetPatientInfo(string strId)
+        {
+            int id = (strId != null) ? Convert.ToInt32(strId) : 0;
+
+            if (id != 0)
+            {
+                IQueryable patient = db.Patients.
+                    Where(p => p.PatientId == id).
+                    Select(p => new
+                    {
+                        p.PatientId,
+                        p.LastName,
+                        p.FirstName,
+                        p.MiddleName,
+                        p.Birthday,
+                        p.PhoneBase,
+                        p.AddressCurrent
+                    });
+
+                return JsonConvert.SerializeObject(patient);
+            }
+
+            return null;
+        }
     }
 }

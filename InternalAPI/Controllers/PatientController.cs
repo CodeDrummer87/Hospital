@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EntityLibrary;
 using InternalAPI.DBContexts;
 using InternalAPI.Modules.Interfaces;
 using Microsoft.AspNetCore.Http;
@@ -39,6 +40,13 @@ namespace InternalAPI.Controllers
         public int Get()
         {
             return buffer.GetPatientsCount();
+        }
+
+        [Route("getPatientInfo")]
+        [HttpGet]
+        public string Get(string id)
+        {
+            return buffer.GetPatientInfo(id);
         }
     }
 }
