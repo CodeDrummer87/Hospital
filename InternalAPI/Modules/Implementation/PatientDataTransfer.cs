@@ -51,14 +51,14 @@ namespace InternalAPI.Modules.Implementation
             if (patientsCount >= 16)
             {
                 patientsList = db.Patients.
-                Select(p => new { p.LastName, p.FirstName, p.MiddleName, p.Birthday }).
+                Select(p => new { p.PatientId, p.LastName, p.FirstName, p.MiddleName, p.Birthday }).
                 OrderBy(p => p.LastName).
                 Skip(page * 15).Take(15);
             }
             else
             {
                 patientsList = db.Patients.
-                    Select(p => new { p.LastName, p.FirstName, p.MiddleName, p.Birthday }).
+                    Select(p => new { p.PatientId, p.LastName, p.FirstName, p.MiddleName, p.Birthday }).
                     OrderBy(p => p.LastName);
             }
 

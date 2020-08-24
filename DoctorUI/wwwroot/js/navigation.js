@@ -131,7 +131,7 @@ function WriteInTable(data) {
 
 	if (patientsCount > 15) {
 		$('#table-paginator').css('display', 'grid');
-		$('.table-paginator-pages').text(`Страница ${currentPageInTable + 1} из ${(Math.round(patientsCount / 15) + 1)}`);
+		$('.table-paginator-pages').text(`Страница ${currentPageInTable + 1} из ${Math.ceil(patientsCount / 15)}`);
 	}
 	else {
 		$('#table-paginator').css('display', 'none');
@@ -148,6 +148,7 @@ function WriteInTable(data) {
 		CreateCell(patient.FirstName, tr);
 		CreateCell(patient.MiddleName, tr);
 		CreateCell(MapToDate(patient.Birthday), tr);
+		tr.setAttribute('id', patient.PatientId);
 
 		tbody.append(tr);
 	}

@@ -64,7 +64,6 @@ hr {
 
 .form-container {
     width: 100%;
-    margin: 0.5%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -112,6 +111,11 @@ button:disabled:hover {
     box-shadow: none;
 }
 
+#nav-main-button {
+    background-color: #5eb8f9;
+    border-color: #5eb8f9;
+}
+
 input:focus, textarea:focus, button:hover {
     box-shadow: 0 0 7px 3px #dba2f5;
     outline: none;
@@ -130,7 +134,6 @@ input:focus, textarea:focus, button:hover {
 
 .fieldset-width-45 {
     width: 45%;
-    height: 87%;
 }
 
 .fieldset-width-60 {
@@ -195,7 +198,7 @@ label {
 }
 
 span {
-    font-size: 1.0rem;
+    font-size: 1.1rem;
     margin: 0 20px;
     font-weight: bold;
     color: #dba2f5;
@@ -218,7 +221,6 @@ legend {
 
 .fieldset-block {
     display: flex;
-    height: 87%;
     align-content: center;
     justify-content: center;
 }
@@ -247,6 +249,7 @@ article {
     display: flex;
     justify-content: center;
     align-content: center;
+    padding: 1%;
 }
 
 aside {
